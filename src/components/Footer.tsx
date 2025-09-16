@@ -1,31 +1,44 @@
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { name: "GitHub", icon: Github, href: "#" },
-    { name: "LinkedIn", icon: Linkedin, href: "#" },
-    { name: "Twitter", icon: Twitter, href: "#" },
-  ];
-
-  const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Careers", href: "#careers" },
-    { name: "Contact", href: "#contact" },
-  ];
-
+  const socialLinks = [{
+    name: "GitHub",
+    icon: Github,
+    href: "#"
+  }, {
+    name: "LinkedIn",
+    icon: Linkedin,
+    href: "#"
+  }, {
+    name: "Twitter",
+    icon: Twitter,
+    href: "#"
+  }];
+  const quickLinks = [{
+    name: "Home",
+    href: "#home"
+  }, {
+    name: "About",
+    href: "#about"
+  }, {
+    name: "Services",
+    href: "#services"
+  }, {
+    name: "Careers",
+    href: "#careers"
+  }, {
+    name: "Contact",
+    href: "#contact"
+  }];
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   };
-
-  return (
-    <footer id="contact" className="bg-foreground text-background">
+  return <footer id="contact" className="bg-foreground text-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -47,26 +60,17 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                  <a 
-                    href="mailto:hello@innovagrid.com" 
-                    className="text-gray-300 hover:text-white transition-colors"
-                  >
+                  <a href="mailto:hello@innovagrid.com" className="text-gray-300 hover:text-white transition-colors">
                     hello@innovagrid.com
                   </a>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                  <a 
-                    href="tel:+1234567890" 
-                    className="text-gray-300 hover:text-white transition-colors"
-                  >
+                  <a href="tel:+1234567890" className="text-gray-300 hover:text-white transition-colors">
                     +1 (234) 567-8900
                   </a>
                 </div>
-                <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                  <span className="text-gray-300">Remote-First Company</span>
-                </div>
+                
               </div>
             </div>
 
@@ -74,16 +78,11 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
               <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <button
-                      onClick={() => scrollToSection(link.href)}
-                      className="text-gray-300 hover:text-white transition-colors duration-200"
-                    >
+                {quickLinks.map(link => <li key={link.name}>
+                    <button onClick={() => scrollToSection(link.href)} className="text-gray-300 hover:text-white transition-colors duration-200">
                       {link.name}
                     </button>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
@@ -91,29 +90,12 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold mb-6">Connect With Us</h3>
               <div className="flex space-x-4 mb-6">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-primary transition-all duration-200"
-                    aria-label={social.name}
-                  >
+                {socialLinks.map(social => <a key={social.name} href={social.href} className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-primary transition-all duration-200" aria-label={social.name}>
                     <social.icon className="w-5 h-5" />
-                  </a>
-                ))}
+                  </a>)}
               </div>
               
-              <div className="bg-gray-800 rounded-xl p-4">
-                <p className="text-sm text-gray-300 mb-3">
-                  Ready to start your project?
-                </p>
-                <button 
-                  onClick={() => scrollToSection("#home")}
-                  className="w-full bg-gradient-primary hover:opacity-90 text-white font-medium py-2 px-4 rounded-lg transition-opacity duration-200"
-                >
-                  Get Started
-                </button>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -135,8 +117,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
