@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { X, Upload, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 interface InternshipModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -68,16 +69,24 @@ const InternshipModal = ({
       return;
     }
 
-    // Simulate form submission
+    // Save to database
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const { error } = await supabase
+        .from('internship_applications')
+        .insert({
+          full_name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          skills: formData.skills,
+          cover_letter: formData.coverLetter,
+          resume_file_name: resume?.name || null,
+          resume_file_size: resume?.size || null
+        });
 
-      // Log form data (in real app, this would be sent to backend/Google Sheets)
-      console.log("Internship Application Submitted:", {
-        ...formData,
-        resume: resume?.name || null,
-        submittedAt: new Date().toISOString()
-      });
+      if (error) {
+        throw error;
+      }
+
       toast({
         title: "Application Submitted!",
         description: "Thank you for your interest. We'll review your application and get back to you soon."
@@ -94,6 +103,7 @@ const InternshipModal = ({
       setResume(null);
       onClose();
     } catch (error) {
+      console.error('Error submitting application:', error);
       toast({
         title: "Submission Failed",
         description: "There was an error submitting your application. Please try again.",
