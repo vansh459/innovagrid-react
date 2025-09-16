@@ -12,3 +12,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+User-agent: *
+Disallow: /node_modules/
+Allow: /
+Sitemap: https://innovagrid.vercel.app/sitemap.xml

@@ -61,15 +61,10 @@ const Footer = () => {
                 <div className="flex items-center">
                   <Mail className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
                   <a href="mailto:hello@innovagrid.com" className="text-gray-300 hover:text-white transition-colors">
-                    hello@innovagrid.com
+                    innovagridwork@gmail.com
                   </a>
                 </div>
-                <div className="flex items-center">
-                  <Phone className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
-                  <a href="tel:+1234567890" className="text-gray-300 hover:text-white transition-colors">
-                    +1 (234) 567-8900
-                  </a>
-                </div>
+                
                 
               </div>
             </div>
