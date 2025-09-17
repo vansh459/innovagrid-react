@@ -31,8 +31,11 @@ const Header = ({ onInternshipClick }: HeaderProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center mr-3">
-              <span className="text-white font-bold text-lg">I</span>
+            <div className="w-8 h-8  rounded-lg flex items-center justify-center mr-3">
+              <img src="favicon.ico"></img>
+
+              
+              
             </div>
             <span className="text-xl font-bold text-foreground">InnovaGrid</span>
           </div>
